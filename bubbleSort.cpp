@@ -7,40 +7,25 @@ using namespace std;
 
 #define MAX_SIZE 10
 class BubbleSort{
-    private:
-    
-        int *items;
-        unsigned int *size;
  public:
     void Swap(int &p1, int &p2 );
-    int Sort( void );
+    void Sort( int* array ,int arrSize);
     BubbleSort(void);
-    BubbleSort(unsigned int arrSize);  // This is the constructor
     ~BubbleSort(void);
 };
 BubbleSort::BubbleSort(void){
-    items = new int[MAX_SIZE];
 }
 
-BubbleSort::BubbleSort(unsigned int arrSize){
-    size = arrSize;
-  items = new int[arrSize];
-}
 BubbleSort::~BubbleSort(){
-  delete [] items;
 }
-int BubbleSort::Sort(){
-  for(int i=(size-1); i>1; i--){
+void BubbleSort::Sort(int* array,int arrSize){
+  for(int i=(arrSize-1); i>1; i--){
     for(int k=0; k<i; k++){
-    //loop through array,
-    //check if k > k+1
-    //if so swap the index of k and k+1
-      if(items[k] > items[k+1]){
-        swap(items[k], items[k+1]);
+      if(array[k] > array[k+1]){
+        swap(array[k], array[k+1]);
       }
     }
   }
-    return items;
 }
 
 void BubbleSort::Swap(int &p1, int &p2) {
@@ -50,5 +35,23 @@ void BubbleSort::Swap(int &p1, int &p2) {
 }
 int main()
 {
-    std::cout << "Hello, world!\n";
+  const int n = 5;
+  int array[n];
+  /* initialize random seed: */
+  srand (time(NULL));
+  //populate array with random integers
+  for(int i = 0; i< n; i++){
+    array[i] = rand() %10;
+   }
+   
+     cout << "Unsorted random generted list: ";
+  for(int j= 0; j< n; j++){
+    cout << array[j];
+   }
+   BubbleSort bsort;
+   bsort.Sort(array, n);
+     cout << "Sorted random generted list: ";
+  for(int j= 0; j< n; j++){
+    cout << array[j];
+   }
 }
