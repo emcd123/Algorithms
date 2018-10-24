@@ -43,7 +43,7 @@ int main()
   for(int i = 0; i< n; i++){
     array[i] = rand() %10;
    }
-   
+
      cout << "Unsorted random generted list: ";
   for(int j= 0; j< n; j++){
     cout << array[j];
@@ -54,4 +54,5 @@ int main()
   for(int j= 0; j< n; j++){
     cout << array[j];
    }
+   return 0;
 }

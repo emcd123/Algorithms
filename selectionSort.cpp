@@ -2,38 +2,44 @@
 
 #include <iostream>
 #include <stdlib.h> //To use random number functions
-#define MAX_SIZE 10
+
 class SelectionSort{
  public:
-    int* Sort( int* array ,int arrSize);
-    int findSmallest(int* array,int arrSize);
+    void Swap(int &p1, int &p2 );
+    void Sort( int* array, int arrSize);
+    int findSmallest(int* array,int arrSize, int start);
     SelectionSort(void);
     ~SelectionSort(void);
 };
 SelectionSort::SelectionSort(void){
 }
-
 SelectionSort::~SelectionSort(){
 }
-int* SelectionSort::Sort(int* array,int arrSize){
-    int sortedArr[arrSize];
-    for(int i=0; i<arrSize; i--){
-        int val = findSmallest(array,arrSize);
-        sortedArr[i] = val;
+
+void SelectionSort::Sort(int* array, int arrSize){
+    int start = 0;
+    for(int i=0; i<arrSize+1; i++){
+        int key = findSmallest(array,arrSize, start);
+        start += 1;
+        Swap(array[i], array[key]);
     }
-    return sortedArr;
 }
-int SelectionSort::findSmallest(int* array,int arrSize){
-  int smallest = 0;
-  for(int i=0; i<arrSize; i--){
-      if(array[i] < array[i+1]){
-           smallest = array[i];
+int SelectionSort::findSmallest(int* array,int arrSize, int start){
+  int smallest = start;
+  for(int i=start; i<arrSize; i++){
+      if(array[i] < array[smallest]){
+           smallest = i;
       }
     }
     return smallest;
- }
-int main()
-{
+}
+void SelectionSort::Swap(int &p1, int &p2) {
+     int temp = p1;
+     p1 = p2;
+     p2 = temp;
+}
+
+int main(){
   const int n = 5;
   int array[n];
   /* initialize random seed: */
@@ -42,15 +48,14 @@ int main()
   for(int i = 0; i< n; i++){
     array[i] = rand() %10;
    }
-   
-  std::cout << "Unsorted random generted list: ";
+  std::cout << "Unsorted random generated list:";
   for(int j= 0; j< n; j++){
     std::cout << array[j];
    }
    SelectionSort sSort;
    sSort.Sort(array, n);
-     std::cout << "Sorted random generted list: ";
+     std::cout << "\n Sorted random generated list: ";
   for(int j= 0; j< n; j++){
     std::cout << array[j];
-}
+  }
 }
