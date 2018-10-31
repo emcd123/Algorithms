@@ -6,36 +6,41 @@ BinarySearch::BinarySearch(void){
 
 BinarySearch::~BinarySearch(){
 }
-/*
+
 int BinarySearch::IndexSearch(int* array, int arrSize, int arg){
-    for(int i=0; i<arrSize;i++){
-        if(array[i] == arg){
-            return i;
-        }
-    }
-    return arrSize+1;
-}
-*/
-bool BinarySearch::BoolSearch(int* array, int arrSize, int arg){
-    int midpoint = arrSize/2;
-    int newArray[midpoint];
-    if(array[midpoint] == arg){
-        return true;
-    }
-    else if(array[midpoint] != arg && arrSize == 1){
-        return false;
-    }
-    else{
+    int bottom = 0;
+    int top = arrSize-1;
+
+    while(bottom <= top){
+        int midpoint = (bottom+top)/2;
         if(array[midpoint]<arg){
-            for(int j=0;j<midpoint;j++){
-                newArray[j] = array[j];
-            }
+            bottom = midpoint+1;
+        }
+        else if(array[midpoint] >arg){
+            top = midpoint-1;
         }
         else{
-            for(int j=0;j<midpoint;j++){
-                newArray[j] = array[j+midpoint];
-            }
+            return midpoint;
         }
-        return BoolSearch(newArray, midpoint, arg);
     }
+    return arrSize;
+}
+
+bool BinarySearch::BoolSearch(int* array, int arrSize, int arg){
+    int bottom = 0;
+    int top = arrSize-1;
+
+    while(bottom <= top){
+        int midpoint = (bottom+top)/2;
+        if(array[midpoint]<arg){
+            bottom = midpoint+1;
+        }
+        else if(array[midpoint] >arg){
+            top = midpoint-1;
+        }
+        else{
+            return true;
+        }
+    }
+    return false;
 }
