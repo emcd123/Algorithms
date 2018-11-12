@@ -1,7 +1,7 @@
-class BubbleSort{
+#include "sort.h"
+class BubbleSort : public Sort{
  public:
-    void Swap(int &p1, int &p2 );
-    void Sort( int* array ,int arrSize);
+    void Sorting( int* array ,int arrSize);
     BubbleSort(void);
     ~BubbleSort(void);
 };

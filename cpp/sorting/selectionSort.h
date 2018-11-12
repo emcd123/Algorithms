@@ -1,7 +1,8 @@
-class SelectionSort{
+#include "sort.h"
+
+class SelectionSort : public Sort{
  public:
-    void Swap(int &p1, int &p2 );
-    void Sort( int* array, int arrSize);
+    void Sorting( int* array, int arrSize);
     int findSmallest(int* array,int arrSize, int start);
     SelectionSort(void);
     ~SelectionSort(void);

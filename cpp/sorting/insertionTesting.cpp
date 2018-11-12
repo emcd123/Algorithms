@@ -19,7 +19,7 @@ int main(){
     std::cout << array[j];
    }
    InsertionSort iSort;
-   iSort.Sort(array, n);
+   iSort.Sorting(array, n);
      std::cout << "\n Sorted random generated list: ";
   for(int j= 0; j< n; j++){
     std::cout << array[j];

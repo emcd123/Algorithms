@@ -6,13 +6,7 @@ InsertionSort::InsertionSort(void){
 InsertionSort::~InsertionSort(){
 }
 
-void InsertionSort::Swap(int &p1, int &p2) {
-     int temp = p1;
-     p1 = p2;
-     p2 = temp;
-}
-
-void InsertionSort::Sort(int* array, int arrSize){
+void InsertionSort::Sorting(int* array, int arrSize){
     int index = 1;
     while(index < arrSize){
         int testArg = index;
@@ -21,6 +15,5 @@ void InsertionSort::Sort(int* array, int arrSize){
             --testArg;
         }
         ++index;
-    }
-    
+    }   
 }

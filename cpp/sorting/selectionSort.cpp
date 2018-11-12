@@ -11,7 +11,7 @@ SelectionSort::SelectionSort(void){
 SelectionSort::~SelectionSort(){
 }
 
-void SelectionSort::Sort(int* array, int arrSize){
+void SelectionSort::Sorting(int* array, int arrSize){
     int start = 0;
     for(int i=0; i<arrSize+1; i++){
         int key = findSmallest(array,arrSize, start);
@@ -30,8 +30,3 @@ int SelectionSort::findSmallest(int* array,int arrSize, int start){
     return smallest;
 }
 
-void SelectionSort::Swap(int &p1, int &p2) {
-     int temp = p1;
-     p1 = p2;
-     p2 = temp;
-}

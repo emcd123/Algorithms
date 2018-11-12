@@ -1,7 +1,7 @@
-class InsertionSort{
+#include "sort.h"
+class InsertionSort  : public Sort{
  public:
-    void Swap( int &p1, int &p2);
-    void Sort(int* array, int arrSize);
+    void Sorting(int* array, int arrSize);
     InsertionSort(void);
     ~InsertionSort(void);
 };
